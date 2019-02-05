@@ -9,15 +9,21 @@
                     </h1>
 
                     <?php
-                    $sql = "SELECT * FROM users WHERE user_id = 1";
-                    $result = $database->query($sql);
-                    while($row = mysqli_fetch_array($result)){
-                      echo $row['username'];
+                    $users = User::find_all_users();
+                    foreach ($users as $user) {
+                      echo $user->user_id . "<br>";
+                      echo $user->username . "<br>";
+                      echo $user->user_password . "<br>";
+                      echo $user->user_firstName . "<br>";
+                      echo $user->user_lastName . "<br>";
                     }
-                    // $user_found = mysqli_fetch_array($result);
-                    // echo $user_found['username'];
+
+                    $one_user = User::find_user_by_id(1);
+                    echo $one_user->username;
+
                     ?>
 
+                    <hr>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
