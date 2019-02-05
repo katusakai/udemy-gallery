@@ -1,4 +1,6 @@
 <?php include("includes/header.php"); ?>
+<?php  !$session->is_signed_in() ? redirect("login.php") : false  //if not signed in- redirects  ?>
+
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">

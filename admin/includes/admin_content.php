@@ -20,6 +20,9 @@
 
                     $one_user = User::find_user_by_id(1);
                     echo $one_user->username;
+                    echo "<br>";
+                    $session->message("textas");
+                    echo $_SESSION['message'];
 
                     ?>
 
