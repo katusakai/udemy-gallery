@@ -65,6 +65,38 @@ class User{
     return array_key_exists($the_attribute, $object_properties);
   }
 
+  public function create(){
+    global $database;
+    $sql = "INSERT INTO users ";
+    $sql .= "(username, user_password, user_firstName, user_lastName) ";
+    $sql .= "VALUES ('";
+    $sql .= $database->escape_string($this->username) ."','";
+    $sql .= $database->escape_string($this->user_password) ."','";
+    $sql .= $database->escape_string($this->user_firstName) ."','";
+    $sql .= $database->escape_string($this->user_lastName) ."')";
+    if($database->query($sql)){
+      $this->user_id = $database->the_insert_id();
+      echo "Pavyko. Sukurtas profilis $this->username ir profilio id yra $this->user_id";
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public function update(){
+    global $database;
+    $sql = "UPDATE users SET ";
+    $sql .= "username= '" . $database->escape_string($this->username)             . "', ";
+    $sql .= "user_password= '" . $database->escape_string($this->user_password)   . "', ";
+    $sql .= "user_firstName= '" . $database->escape_string($this->user_firstName) . "', ";
+    $sql .= "user_lastName= '" . $database->escape_string($this->user_lastName)   . "' ";
+    $sql .= " WHERE user_id= " . $database->escape_string($this->user_id);
+    $database->query($sql);
+
+    return ($database->connection->affected_rows == 1) ? true : false;
+
+  }
+
 
 }
 

@@ -5,7 +5,7 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">
                         Admin
-                        <small>Subheading</small>
+                        <small>Testing a lot</small>
                     </h1>
 
                     <?php
@@ -24,6 +24,15 @@
                     $session->message("textas");
                     echo $_SESSION['message'];
 
+                    echo "<hr>";
+                    $new_user = new User();
+                    $new_user->username = "galis";
+                    $new_user->user_password = "asgotas";
+                    $new_user->user_firstName = "Galintas";
+                    $new_user->user_lastName = "Dabašinskas";
+                    $new_user->user_id = 7;
+                    //$new_user->create();          //comment to avoid autocreating user
+                    echo $new_user->update();
                     ?>
 
                     <hr>

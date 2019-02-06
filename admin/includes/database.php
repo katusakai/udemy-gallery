@@ -37,7 +37,7 @@ class Database {
   }
 
   public function the_insert_id() {
-    return $this->connection->insert_id;
+    return $this->connection->insert_id;    //or return mysqli_insert_id($this->connection)
   }
 
 }
