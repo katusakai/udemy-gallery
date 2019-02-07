@@ -26,13 +26,16 @@
 
                     echo "<hr>";
                     $new_user = new User();
-                    $new_user->username = "galis";
-                    $new_user->user_password = "asgotas";
-                    $new_user->user_firstName = "Galintas";
+                    $new_user->username = "mocai";
+                    $new_user->user_password = "asvisgigotas";
+                    $new_user->user_firstName = "Gintaras";
                     $new_user->user_lastName = "Dabašinskas";
-                    $new_user->user_id = 7;
-                    //$new_user->create();          //comment to avoid autocreating user
+                    $new_user->user_id= 22;
+                  //  $new_user->create();          //comment to avoid autocreating user
                     echo $new_user->update();
+                    //echo $new_user->delete();
+                    //$new_user->save();
+
                     ?>
 
                     <hr>
