@@ -19,7 +19,7 @@ class Db_object{
 
   public static function find_by_id($id){
     global $database;
-    $the_result_array = static::find_by_query("SELECT * FROM " . static::$db_table . " WHERE user_id = {$id} LIMIT 1");   //needs abstraction
+    $the_result_array = static::find_by_query("SELECT * FROM " . static::$db_table . " WHERE id = {$id} LIMIT 1");   //needs abstraction
     return !empty($the_result_array) ? array_shift($the_result_array) : false;    //ternary if
   }
 
@@ -66,7 +66,7 @@ class Db_object{
   // }
 
   public function save(){                   //use this method if you are not sure create or update
-    return isset($this->user_id) ? $this->update() : $this->create();
+    return isset($this->id) ? $this->update() : $this->create();
   }
 
   public function create(){
@@ -79,7 +79,7 @@ class Db_object{
     $sql .= implode("', '", array_values($properties));                   //replaces and does auto     // $sql .= $database->escape_string($this->username) ."','"; and etc.
     $sql .= "')";
     if($database->query($sql)){
-      $this->user_id = $database->the_insert_id();
+      $this->id = $database->the_insert_id();
      // echo "Entry was created successfully";
       return true;
     } else {
@@ -98,14 +98,14 @@ class Db_object{
         $sql .= "{$key}= '{$value}' ";
       }
     }
-    $sql .= " WHERE user_id= " . $database->escape_string($this->user_id);
+    $sql .= " WHERE id= " . $database->escape_string($this->id);
     $database->query($sql);
     return ($database->connection->affected_rows == 1) ? true : false;
   }
 
   public function delete(){
     global $database;
-    $sql = "DELETE FROM " . static::$db_table . " WHERE user_id={$database->escape_string($this->user_id)} LIMIT 1";
+    $sql = "DELETE FROM " . static::$db_table . " WHERE id={$database->escape_string($this->id)} LIMIT 1";
     $database->query($sql);
     return ($database->connection->affected_rows == 1) ? true : false;
   }

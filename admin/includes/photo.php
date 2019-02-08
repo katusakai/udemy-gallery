@@ -3,7 +3,7 @@ class Photo extends Db_object {
 
   protected static $db_table = "photos";
   protected static $db_table_fields = array('title', 'description', 'filename', 'type', 'size');
-  public $photo_id;
+  public $id;
   public $title;
   public $description;
   public $filename;
@@ -46,7 +46,7 @@ class Photo extends Db_object {
   }
 
   public function save(){                 //creates or updates, depends if file is there
-    if($this->photo_id){
+    if($this->id){
       $this->update();
     } else{
       if(!empty($this->errors)){
@@ -70,6 +70,15 @@ class Photo extends Db_object {
           return false;
         }
       }    
+    }
+  }
+
+  public function delete_photo(){
+    if($this->delete()){
+      $target_path = SITE_ROOT . DS. 'admin' . DS . $this->picture_path();
+      return unlink($target_path) ? true : false;
+    } else {
+      return false;
     }
   }
 }

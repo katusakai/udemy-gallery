@@ -9,14 +9,14 @@
                     </h1>
 
                     <?php
-                    // $users = User::find_all();
-                    // foreach ($users as $user) {
-                    //   echo $user->user_id . "<br>";
-                    //   echo $user->username . "<br>";
-                    //   echo $user->user_password . "<br>";
-                    //   echo $user->user_firstName . "<br>";
-                    //   echo $user->user_lastName . "<br>";
-                    // }
+                    $users = User::find_all();
+                    foreach ($users as $user) {
+                      echo $user->id . "<br>";
+                      echo $user->username . "<br>";
+                      echo $user->password . "<br>";
+                      echo $user->firstName . "<br>";
+                      echo $user->lastName . "<br>";
+                    }
 
                     // $one_user = User::find_by_id(1);
                     // echo $one_user->username;
@@ -27,10 +27,10 @@
                     // echo "<hr>";
                     // $new_user = new User();
                     // $new_user->username = "mocai";
-                    // $new_user->user_password = "asvisgigotas";
-                    // $new_user->user_firstName = "Gintaras";
-                    // $new_user->user_lastName = "Dabašinskas";
-                //    $new_user->user_id= 22;
+                    // $new_user->password = "asvisgigotas";
+                    // $new_user->firstName = "Gintaras";
+                    // $new_user->lastName = "Dabašinskas";
+                //    $new_user->id= 22;
                 //    $new_user->create();          //comment to avoid autocreating user
                   //  echo $new_user->update();
                     //echo $new_user->delete();
@@ -38,7 +38,7 @@
 
                     $photos = Photo::find_all();
                     foreach ($photos as $photo) {
-                      echo $photo->photo_id . "<br>";
+                      echo $photo->id . "<br>";
                       echo $photo->title . "<br>";
                       echo $photo->description. "<br>";
                       echo $photo->filename . "<br>";
@@ -54,7 +54,7 @@
                     $new_photo->type = "jpg";
                     $new_photo->size = 38;
                     echo INCLUDES_PATH;
-                  //  $new_photo->photo_id = 3;
+                  //  $new_photo->id = 3;
                   //  $new_photo->create();
                 //    $new_photo->update();
 

@@ -35,12 +35,19 @@
                             <?php 
                                 $photos = Photo::find_all();
                                 foreach ($photos as $photo) {                                    
-                                    echo "<tr>";
-                                    echo "<td><img width='100' src='" . $photo->picture_path() ."'></td>";
-                                    echo "<td>" . $photo->photo_id . "</td>";
+                                    echo "<tr id=" . $photo->id . ">";
+                                    echo "
+                                    <td><img width='150' src='" . $photo->picture_path() ."'>
+                                    <div class='pictures_link'>
+                                    <a href='delete_photo.php?id=" . $photo->id . "'>Delete</a>
+                                    <a href=''>Edit</a>
+                                    <a href=''>View</a>
+                                    </div>
+                                    </td>";
+                                    echo "<td>" . $photo->id . "</td>";
                                     echo "<td>" . $photo->filename . "</td>";
                                     echo "<td>" . $photo->title . "</td>";
-                                    echo "<td>" . $photo->size . " bytes</td>";
+                                    echo "<td>" . $photo->size . " bytes</td>";                                    
                                     echo "<tr>";
                                 }
                                 
