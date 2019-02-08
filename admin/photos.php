@@ -20,14 +20,36 @@
                           PHOTOS
                           <small>Subheading</small>
                       </h1>
-                      <ol class="breadcrumb">
-                          <li>
-                              <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                          </li>
-                          <li class="active">
-                              <i class="fa fa-file"></i> Blank Page
-                          </li>
-                      </ol>
+                      <div class="col-md-12 table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Photo</th>
+                                    <th>Id</th>
+                                    <th>File Name</th>
+                                    <th>Title</th>
+                                    <th>Size</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php 
+                                $photos = Photo::find_all();
+                                foreach ($photos as $photo) {                                    
+                                    echo "<tr>";
+                                    echo "<td><img width='100' src='" . $photo->picture_path() ."'></td>";
+                                    echo "<td>" . $photo->photo_id . "</td>";
+                                    echo "<td>" . $photo->filename . "</td>";
+                                    echo "<td>" . $photo->title . "</td>";
+                                    echo "<td>" . $photo->size . " bytes</td>";
+                                    echo "<tr>";
+                                }
+                                
+                            ?>
+
+                            </tbody>
+                        </table> <!--End of Table-->
+                      </div>
+
                   </div>
               </div>
               <!-- /.row -->
