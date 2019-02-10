@@ -1,4 +1,5 @@
 <?php include("includes/header.php"); ?>
+<?php !$session->is_signed_in() ? redirect("login.php") : false  //if not signed in- redirects  ?>
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -35,12 +36,12 @@
                             <?php 
                                 $photos = Photo::find_all();
                                 foreach ($photos as $photo) {                                    
-                                    echo "<tr id=" . $photo->id . ">";
+                                    echo "<tr>";
                                     echo "
-                                    <td><img width='150' src='" . $photo->picture_path() ."'>
+                                    <td><img class='admin-photo-thumbnail' src='" . $photo->picture_path() ."'>
                                     <div class='pictures_link'>
                                     <a href='delete_photo.php?id=" . $photo->id . "'>Delete</a>
-                                    <a href=''>Edit</a>
+                                    <a href='edit_photo.php?id=" . $photo->id . "'>Edit</a>
                                     <a href=''>View</a>
                                     </div>
                                     </td>";
