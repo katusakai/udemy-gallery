@@ -30,25 +30,29 @@
                                     <th>File Name</th>
                                     <th>Title</th>
                                     <th>Size</th>
+                                    <th>Comments</th>
                                 </tr>
                             </thead>
                             <tbody>
                             <?php 
                                 $photos = Photo::find_all();
-                                foreach ($photos as $photo) {                                    
+                                foreach ($photos as $photo) {  
+                                    $comment_count = count(Comment::find_the_comments($photo->id));    
+                                                                  
                                     echo "<tr>";
                                     echo "
                                     <td><img class='admin-photo-thumbnail' src='" . $photo->picture_path() ."'>
-                                    <div class='pictures_link'>
+                                    <div class='action_links'>
                                     <a href='delete_photo.php?id=" . $photo->id . "'>Delete</a>
                                     <a href='edit_photo.php?id=" . $photo->id . "'>Edit</a>
-                                    <a href=''>View</a>
+                                    <a href='../photo.php?id={$photo->id}'>View</a>                                    
                                     </div>
                                     </td>";
                                     echo "<td>" . $photo->id . "</td>";
                                     echo "<td>" . $photo->filename . "</td>";
                                     echo "<td>" . $photo->title . "</td>";
-                                    echo "<td>" . $photo->size . " bytes</td>";                                    
+                                    echo "<td>" . $photo->size . " bytes</td>";     
+                                    echo "<td><a href='comment_photo.php?id={$photo->id}'>View comments({$comment_count})</a></td>";                               
                                     echo "<tr>";
                                 }
                                 

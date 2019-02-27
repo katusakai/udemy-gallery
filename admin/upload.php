@@ -58,9 +58,7 @@ if(isset($_POST['submit'])){
     		                    </span>
 		                    </div>
 	                    </div>                        
-                        <!-- <div class="form-group">
-                            <input type="file" name="file_upload">
-                        </div> -->
+
                         <input class="btn btn-primary" type="submit" name="submit">
                     </div>
                     <?php echo $message; ?>

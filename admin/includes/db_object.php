@@ -1,6 +1,20 @@
 <?php
 class Db_object{
 
+  #####FILE UPLOAD PROPERTIES####
+  private $upload_directory = "images";  //default
+  private $tmp_path;
+  private $errors = array();
+  private $upload_errors_array = array(
+    UPLOAD_ERR_OK => "There is no error",
+    UPLOAD_ERR_INI_SIZE => "The uploaded file exceeds the upload_max_file_size directive",
+    UPLOAD_ERR_FORM_SIZE => "The uploaded file exceeds the MAX_FILE_SIZE directive",
+    UPLOAD_ERR_PARTIAL => "The uploaded file was only partially uploaded",
+    UPLOAD_ERR_NO_FILE => "No file was uploaded",
+    UPLOAD_ERR_NO_TMP_DIR => "Missing a temporary folder",
+    UPLOAD_ERR_CANT_WRITE => "Failed to write file to disk",
+    UPLOAD_ERR_EXTENSION => "A PHP extension stopped the file upload"
+  );
 
   #####MAIN METHOD FOR GETTING QUERIES#########
   public static function find_by_query($sql){
@@ -109,6 +123,7 @@ class Db_object{
     $database->query($sql);
     return ($database->connection->affected_rows == 1) ? true : false;
   }
+
 }
 
  ?>

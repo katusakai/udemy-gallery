@@ -33,8 +33,8 @@ class Database {
   public function escape_string($string){
     // $escape_string = mysqli_real_escape_string($this->connection, $string);
     $escape_string = $this->connection->real_escape_string($string); //using real_escape_string method of mysqli class. Avoids sql injection
-    $escape_string = htmlentities($escape_string); //Avoids javascript and html  injection
-    return $escape_string;
+  //  $escape_string = htmlspecialchars($escape_string, ENT_QUOTES); //Avoids javascript and html  injection
+    return $escape_string;    
   }
 
   public function the_insert_id() {

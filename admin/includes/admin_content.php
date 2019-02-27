@@ -7,63 +7,32 @@
                         Admin
                         <small>Testing a lot</small>
                     </h1>
-
-                    <?php
-                    $users = User::find_all();
-                    foreach ($users as $user) {
-                      echo $user->id . "<br>";
-                      echo $user->username . "<br>";
-                      echo $user->password . "<br>";
-                      echo $user->firstName . "<br>";
-                      echo $user->lastName . "<br>";
-                    }
-
-                    // $one_user = User::find_by_id(1);
-                    // echo $one_user->username;
-                    // echo "<br>";
-                    // $session->message("textas");
-                    // echo $_SESSION['message'];
-
-                    // echo "<hr>";
-                    // $new_user = new User();
-                    // $new_user->username = "mocai";
-                    // $new_user->password = "asvisgigotas";
-                    // $new_user->firstName = "Gintaras";
-                    // $new_user->lastName = "Dabašinskas";
-                //    $new_user->id= 22;
-                //    $new_user->create();          //comment to avoid autocreating user
-                  //  echo $new_user->update();
-                    //echo $new_user->delete();
-                    //$new_user->save();
-
-                    $photos = Photo::find_all();
-                    foreach ($photos as $photo) {
-                      echo $photo->id . "<br>";
-                      echo $photo->title . "<br>";
-                      echo $photo->description. "<br>";
-                      echo $photo->filename . "<br>";
-                      echo $photo->type . "<br>";
-                      echo $photo->size . "<br>";
-                      echo "<hr>";
-                    }
-
-                    $new_photo = new Photo();
-                    $new_photo->title = "Trečia nuotrauka";
-                    $new_photo->description = "Dar vienas title skirtas nuotraukoms";
-                    $new_photo->filename = "photo";
-                    $new_photo->type = "jpg";
-                    $new_photo->size = 38;
-                    echo INCLUDES_PATH;
-                  //  $new_photo->id = 3;
-                  //  $new_photo->create();
-                //    $new_photo->update();
+                    <?php 
+                    // $sukurti = Comment::create_comment(7, 'tadux', 'va cia tai komentaras');
+                    // $komentaras = Comment::find_all();
+                    // echo "<pre>";
+                    // var_dump($komentaras);
+                    // echo "</pre>";
+                    // echo date("Y-m-d H:i:s");
+                    // $komentaras = Comment::find_the_comments(5);
+                    // echo $komentaras->photo_id;
+                    // echo "<pre>";
+                    // var_dump($komentaras);
+                    // echo "</pre>";
+                    
 
 
-
-
-
-
+                    // $datetime = date('Y-m-d H:i:s');
+                    // $date = date('Y-m-d H:i:s');
+                    // echo $date . "<br>" . $datetime . "<br>";
+                                       
+                    // $sql = "UPDATE comments SET 
+                    // date_updated = '{$datetime}', 
+                    // date_created = '{$date}' 
+                    // WHERE ID = 1";
+                    // $database->query($sql);
                     ?>
+                    
 
                     <hr>
                     <ol class="breadcrumb">
