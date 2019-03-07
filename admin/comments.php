@@ -21,7 +21,6 @@
                           Comments
                           <small>Subheading</small>
                       </h1>
-                      <a href="add_user.php" class="btn btn-primary">Add User</a>
                       <div class="col-md-12 table-responsive">
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
