@@ -28,7 +28,14 @@ class Db_object{
   }
     ###############################################
   public static function find_all(){
-    return static::find_by_query("SELECT * FROM " . static::$db_table);
+    $sql = "SELECT * FROM " . static::$db_table;
+    return static::find_by_query($sql);
+  }
+
+  public static function find_all_limited($limit, $offset){
+    $sql = "SELECT * FROM " . static::$db_table;
+    $sql.= " LIMIT {$limit} OFFSET {$offset}";
+    return static::find_by_query($sql);
   }
 
   public static function find_by_id($id){

@@ -20,9 +20,9 @@
                       <h1 class="page-header">
                           USERS
                           <small>Subheading</small>
-                      </h1>
-                      <a href="add_user.php" class="btn btn-primary">Add User</a>
+                      </h1>                      
                       <div class="col-md-12 table-responsive">
+                      <a href="add_user.php" class="btn btn-primary">Add User</a>
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>                                    

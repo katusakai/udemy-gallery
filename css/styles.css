@@ -2,3 +2,13 @@
     width: 200px;
     height: 150px !important;
 }
+
+#paginate ul{
+    list-style:none;
+    position:relative;
+    left:50%;
+}
+
+
+
+  
