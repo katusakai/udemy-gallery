@@ -12,8 +12,11 @@ if(isset($_POST['create'])){
            $user->set_file($_FILES['user_image']);
             $user->upload_photo();
             $user->save();
+            redirect("users.php");
+            $session->message("The user has been created");
         } else {
             $user->save();
+            $session->message("The user has been created");
         }
     }
 }

@@ -17,13 +17,16 @@
           <!-- Page Heading -->
               <div class="row">
                   <div class="col-lg-12">
+                    
                       <h1 class="page-header">
                           USERS
-                          <small>Subheading</small>
-                      </h1>                      
-                      <div class="col-md-12 table-responsive">
+                      </h1>     
+                      <?php if($message != ""){
+                        echo "<p class='bg-success'> {$message}</p>";
+                    }?>                 
+                      <div class="col-md-12 ">                          
                       <a href="add_user.php" class="btn btn-primary">Add User</a>
-                        <table class="table table-striped table-bordered table-hover">
+                        <table class="table-responsive table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>                                    
                                     <th>Id</th>

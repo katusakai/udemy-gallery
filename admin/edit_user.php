@@ -1,4 +1,5 @@
 <?php include("includes/header.php"); ?>
+<?php include("includes/photo_library_modal.php"); ?>
 <?php !$session->is_signed_in() ? redirect("login.php") : false  //if not signed in- redirects  ?>
 <?php 
 if(empty($_GET['id'])){
@@ -18,16 +19,17 @@ if(isset($_POST['update'])){
             $user->set_file($_FILES['user_image']);
             $user->upload_photo();
             $user->save();
-            redirect("edit_user.php?id{$user->id}");
+            redirect("users.php");
+            $session->message("The user has been updated");
+          //  redirect("edit_user.php?id{$user->id}");
          } else {
             $user->save();
+            redirect("users.php");
+            $session->message("The user has been updated");
          }        
     }    
 }
-
-
 ?>
-
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -40,7 +42,6 @@ if(isset($_POST['update'])){
         </nav>
 
 <div id="page-wrapper">
-
       <div class="container-fluid">
           <!-- Page Heading -->
               <div class="row">
@@ -51,7 +52,9 @@ if(isset($_POST['update'])){
                       </h1>
                         <div class="col-md-6"> 
                             <div class="form-group">  
-                                <img class='img-responsive' src="<?php echo $user->image_path_and_placeholder() ; ?>" alt="">
+                                <a href="#" data-toggle="modal" data-target="#photo-library">
+                                    <img id="user_photo" class='img-responsive' src="<?php echo $user->image_path_and_placeholder() ; ?>" alt="">
+                                </a>
                             </div>   
                         </div>  
                         <form action="" method="post" enctype="multipart/form-data">
@@ -85,9 +88,9 @@ if(isset($_POST['update'])){
                                 </div>
                                 <div class="form-group">
                                     <input name="update" class="btn btn-primary pull-right" type="submit" value="Update"> 
-                                    <a href="delete_user.php?id=<?php echo $user->id ; ?>">
-                                    <button class="btn btn-danger pull-left">DELETE
-                                    </button></a>
+                                    <a class="btn btn-danger pull-left" id="user-id" href="delete_user.php?id=<?php echo $user->id ?>">
+                                    DELETE
+                                    </a>
                                 </div>
                             </div>                                   
                         </form>

@@ -113,13 +113,16 @@ class Db_object{
     $properties = $this->properties();
 
     $sql = "UPDATE " . static::$db_table . " SET ";
+    $i = 1;
     foreach ($properties as $key => $value) {          //loops through all array to set values
-      $sql .= "{$key}= '{$value}', ";
-      if(!next($properties)){                          //differs last line of loop because of SQL syntax
-        $sql .= "{$key}= '{$value}' ";
+      if($i != count($properties)){
+        $sql .= "\n{$key}= '{$value}', ";
+      } else {                                        //differs last line of loop because of SQL syntax                           
+        $sql .= "\n{$key}= '{$value}' ";      
       }
+      $i++;
     }
-    $sql .= " WHERE id= " . $database->escape_string($this->id);
+    $sql .= "\nWHERE id = " . $database->escape_string($this->id);
     $database->query($sql);
     return ($database->connection->affected_rows == 1) ? true : false;
   }
