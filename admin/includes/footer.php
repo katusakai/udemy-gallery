@@ -15,6 +15,9 @@
 
     <!-- Custom Javascript Codes -->
     <script src="js/scripts.js"></script>
+    
+    <!-- Dropzone Codes/for uploading images -->
+    <script src="js/dropzone.js"></script>
 
 
 </body>

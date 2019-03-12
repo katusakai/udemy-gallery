@@ -21,6 +21,9 @@
                           PHOTOS
                           <small>Subheading</small>
                       </h1>
+                      <?php if($message != ""){
+                        echo "<p class='bg-success'> {$message}</p>";
+                    }?>  
                       <div class="col-md-12 table-responsive">
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
@@ -43,7 +46,7 @@
                                     echo "
                                     <td><img class='admin-photo-thumbnail' src='" . $photo->picture_path() ."'>
                                     <div class='action_links'>
-                                    <a href='delete_photo.php?id=" . $photo->id . "'>Delete</a>
+                                    <a class='delete_link' href='delete_photo.php?id=" . $photo->id . "'>Delete</a>
                                     <a href='edit_photo.php?id=" . $photo->id . "'>Edit</a>
                                     <a href='../photo.php?id={$photo->id}'>View</a>                                    
                                     </div>

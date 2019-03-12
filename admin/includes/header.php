@@ -28,6 +28,9 @@
     <!-- My custom Fonts -->
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 
+    <!-- Dropzone Fonts/for uploading images -->
+    <link href="css/dropzone.css" rel="stylesheet" type="text/css">
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     
      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

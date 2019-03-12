@@ -58,4 +58,15 @@ $(document).ready(function(){
         
     });
 
+    /******************EDIT PHOTOS sidebar *********/
+    $("#info-box-toggle").click(function(){
+        $(".inside").slideToggle("fast");
+        $("#info-box-toggle").toggleClass('glyphicon-menu-down , glyphicon-menu-up');
+    });
+
+    /**************DELETE FUNCTION */
+    $(".delete_link").click(function(){
+        return confirm("Are you sure you want to delete this?");
+    });
+
 });

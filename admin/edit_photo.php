@@ -10,7 +10,8 @@
             $photo->caption = $_POST['caption'];
             $photo->alternate_text = $_POST['alternate_text'];
 			$photo->description = $_POST['description'];
-			$photo->save();
+            $photo->save();
+            $session->message("The photo has been updated");
 		}    
 	}
 }
@@ -38,6 +39,9 @@
                           PHOTOS
                           <small>Subheading</small>
                       </h1>
+                      <?php if($message != ""){
+                        echo "<p class='bg-success'> {$message}</p>";
+                    }?>  
                         <form action="" method="post">
                             <div class="form-group">                            
                                 <div class="col-md-8">                                    
@@ -64,7 +68,7 @@
                                 <div class="col-md-4" >
                                     <div class="photo-info-box">
                                         <div class="info-box-header">
-                                        <h4>Save <span id="toggle" class="glyphicon glyphicon-menu-up pull-right"></span></h4>
+                                        <h4>File Info <span id="info-box-toggle" class="glyphicon glyphicon-menu-up pull-right"></span></h4>
                                         </div>
                                         <div class="inside">
                                             <div class="box-inner">

@@ -16,6 +16,7 @@ if(isset($_POST['create'])){
             $session->message("The user has been created");
         } else {
             $user->save();
+            redirect("users.php");
             $session->message("The user has been created");
         }
     }

@@ -35,13 +35,13 @@ if(isset($_POST['submit'])){
 <form id="login-id" action="" method="post">
 
 <div class="form-group">
-	<label style="color:white" for="username">Username</label>
+	<label for="username">Username</label>
 	<input type="text" class="form-control" name="username" value="<?php echo htmlentities($username); ?>" >
 
 </div>
 
 <div class="form-group">
-	<label style="color:white" for="password">Password</label>
+	<label for="password">Password</label>
 	<input type="password" class="form-control" name="password" value="<?php echo htmlentities($password); ?>">
 
 </div>
